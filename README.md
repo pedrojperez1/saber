@@ -10,7 +10,7 @@ Once you are set up, you'll be able to see questions that have been asked in you
 
 ### Technology
 
-Saber uses a HTML/CSS/JS (with [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) front-end and a Python/[Flask](https://flask.palletsprojects.com/en/1.1.x/) back-end. Deployment is done via [Heroku](https://devcenter.heroku.com/categories/reference).
+Saber uses a HTML/CSS/JS (with [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)) front-end and a Python/[Flask](https://flask.palletsprojects.com/en/1.1.x/) back-end. Deployment is done via [Heroku](https://devcenter.heroku.com/categories/reference).
 
 ### Contributing
 
