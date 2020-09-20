@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 from flask_bcrypt import Bcrypt
 from utility import get_channel, PLACEHOLDER_IMG
-# from config import API_KEY
+
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
