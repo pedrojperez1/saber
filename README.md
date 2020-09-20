@@ -10,7 +10,7 @@ Once you are set up, you'll be able to see questions that have been asked in you
 
 ### Technology
 
-Saber was created using [Flask](https://flask.palletsprojects.com/en/1.1.x/) and deployed using [Heroku](https://devcenter.heroku.com/categories/reference).
+Saber uses a HTML/CSS/JS front-end and a Python/[Flask](https://flask.palletsprojects.com/en/1.1.x/) back-end. Deployment is done via [Heroku](https://devcenter.heroku.com/categories/reference).
 
 ### Contributing
 
