@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 from flask_bcrypt import Bcrypt
 from utility import get_channel, PLACEHOLDER_IMG
-from config import API_KEY
+# from config import API_KEY
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -88,7 +88,7 @@ class Official(db.Model):
         state_name = city.state.name
         base_url = 'https://www.googleapis.com/civicinfo/v2/'
         json_resp = requests.get(
-            f'{base_url}representatives?key={API_KEY}&address={city_name}%20{state_name}'
+            f'{base_url}representatives?key={GOOGLE_DEV_API_KEY}&address={city_name}%20{state_name}'
             ).json()
 
         new_officials = []
