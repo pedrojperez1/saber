@@ -1,3 +1,4 @@
+import os
 import requests
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
@@ -12,6 +13,8 @@ bcrypt = Bcrypt()
 def connect_db(app):
     db.app = app
     db.init_app(app)
+
+GOOGLE_DEV_API_KEY = os.environ.get('GOOGLE_DEV_API_KEY')
 
 # ==================================
 # Core data models
