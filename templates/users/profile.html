@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Saber{% endblock %}
+{% set active_page = 'profile' %}
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-3">
+                    <img class="profile-pic img-fluid rounded float-left" src="{{user.image_url}}" alt="Card image cap">
+                </div>
+                <div class="col-9">
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.username}}</h5>
+                        <p class="card-text">
+                            <span>
+                                <i class="fas fa-thumbtack mr-2"></i>
+                            </span>
+                            {{user.city.name}}, {{user.city.state.name}}
+                        </p>
+                        <p class="card-text">
+                            <span>
+                                <i class="far fa-envelope mr-2"></i>
+                            </span> 
+                            {{user.email}}
+                        </p>
+                        <p class="card-text">
+                            <span>
+                                <i class="far fa-clock mr-2"></i>
+                            </span>
+                            Joined {{user.first_joined|calc_time_ago}}
+                        </p>
+                        <p class="card-text"><span class="badge badge-secondary">{{user.questions|length}}</span> questions posted</p>
+                        <a class="btn btn-outline-primary btn-sm" href="/edit_profile">Edit</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+{% endblock %}

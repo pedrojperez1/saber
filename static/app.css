@@ -1,0 +1,66 @@
+.onboarding .form-control {
+    margin-bottom: 20px;
+}
+
+.join-message {
+    margin-top: 100px;
+}
+
+.navbar-nav { 
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+a > i:hover{
+    text-decoration: none;
+}
+
+.question.card {
+    background-color: #E9FEF8;
+}
+
+.official.card {
+    background-color: #E9FEF8;
+}
+
+.profile-pic {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-columns {
+    display: inline-block;
+}
+
+.official-photo {
+    max-width: 200px;
+    height: auto;
+}
+
+i.fa-facebook {
+    color: #4267B2;
+}
+
+i.fa-twitter {
+    color: #00acee;
+}
+
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 90em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+

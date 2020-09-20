@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}New Question{% endblock %}
+{% set active_page = 'new' %}
+{% block content %}
+
+  <div class="row justify-content-md-left">
+  <div class="col-md-10 col-lg-8">
+    <p class="display-4">Ask away!</p>
+    <form method="POST" id="new_question_form">
+      {{form.hidden_tag() }}
+      {% for field in form
+          if field.widget.input_type != 'hidden' %}
+      <p>
+          {{ field.label }}
+          {{ field(class_="form-control") }}
+
+          {% for error in field.errors %}
+          <span class="text-danger">{{ error }}</span>
+          {% endfor %}
+      </p>
+      {% endfor %}
+      <div class="form-group">
+        <label for="test">Add tags</label>
+        <div class="bootsrap-tagsinput">
+          <input class="form-control" type="text" id="test" rows="1" data-role="tagsinput" style="width: 100%;"></input>
+        </div>
+      </div>
+        
+
+        
+        
+      <button class="btn btn-primary btn-lg btn-block">Let's get some answers!</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

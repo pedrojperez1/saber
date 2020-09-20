@@ -1,0 +1,33 @@
+{% extends 'base_no_nav.html' %}
+
+{% block body_class %}onboarding{% endblock %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Join <b>Saber</b> to start getting some answers</h1>
+      <p class="lead">Where representation meets cross-examination.</p>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+  <div class="col-xs-10 col-sm-8 col-md-7 col-lg-4 col-xl-3">
+    <form method="POST" id="user_form">
+        {{form.hidden_tag() }}
+        {% for field in form
+            if field.widget.input_type != 'hidden' %}
+        <p>
+            {{ field.label }}
+            {{ field(class_="form-control") }}
+    
+            {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </p>
+        {% endfor %}
+
+      <button class="btn btn-primary btn-lg btn-block">Sign me up!</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

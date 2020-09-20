@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Saber{% endblock %}
+{% set active_page = 'officials' %}
+{% block content %}
+<!-- <ul class="list-group">
+    {% for o in user.city.officials %}
+    <li class="list-group-item">
+        {{o.name}} ({{o.office}})
+        <span class="ml-3 badge {% if o.party == 'Dem' %} badge-primary {% elif o.party == 'Rep' %} badge-danger {% else %} badge-secondary {% endif %}">
+            {{o.party}}
+        </span>
+    </li>
+    {% endfor %}
+</ul> -->
+<div class="card-columns">
+    {% for o in user.city.officials %}
+    <div class="official card">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-3">
+                <img class="img-fluid rounded" src="{{o.photo_url}}" alt="Card image cap">
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <p class="h6 card-title">
+                        {{o.name}} <span class="text-muted d-none d-lg-inline">({{o.office}})</span>
+                        <span class="badge badge-pill {% if o.party == 'Dem' %}badge-primary{% elif o.party == 'Rep' %}badge-danger{% else %}badge-secondary{% endif %}">
+                            {{o.party}}
+                        </span>
+                    </p>
+                    <p class="card-text">
+                        {% if o.email %}<i class="far fa-envelope mr-1"></i>{{o.email}}{% endif %}<br>
+                        {% if o.twitter %}<i class="fab fa-twitter mr-1"></i>@{{o.twitter}}{% endif %}<br>
+                        {% if o.facebook %}<i class="fab fa-facebook mr-1"></i>{{o.facebook}}{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

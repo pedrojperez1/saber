@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Saber{% endblock %}
+{% set active_page = 'home' %}
+{% block content %}
+{% if questions|length == 0 %}
+<div class="container">
+    <p class="display-4 text-center">
+        No questions have been posted for your officials yet! Be the first to post!
+    </p>
+</div>
+{% endif %}
+{% for question in questions %}
+<div class="row mb-3">
+    <div class="col">
+        <div id="question-{{question.id}}" class="question card border-info">
+            <div class="card-header">
+                <div class="h5">
+                    {{question.official.name}}
+                    <small class="text-muted ml-3">{{question.official.office}}</small>
+                    <small>
+                        <span class="ml-3 badge {% if question.official.party == 'Dem' %} badge-primary {% elif question.official.party == 'Rep' %} badge-danger {% else %} badge-secondary {% endif %}">
+                            {{question.official.party}}.
+                        </span>
+                    </small>
+                </div>
+        </div>
+            
+            <div class="card-body">
+                <div class="p card-title text-small text-muted">
+                    <b class="text-dark">{{question.user.username}}</b> in <b class="text-dark">{{question.user.city.name}}, {{question.user.city.state.name}}</b> wants to know...
+                </div>
+                <div class="h5 card-text">{{question.text}}</div>
+            </div>
+            <div class="card-footer text-muted">
+                <span class="float-left">
+                    <a href="#" class="like text-info">
+                        <i class="{% if question.id in user_likes %}fas{% else %}far{% endif %} fa-hand-paper" data-qid="{{question.id}}"></i>
+                    </a>
+                    <small class="ml-2">{{question.likes|length}} other user{% if question.likes|length > 1 %}s{% endif %} also want{% if question.likes|length <= 1 %}s{% endif %} an answer</small>
+                </span>
+                <small class="float-right">{{question.timestamp|calc_time_ago}}</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
