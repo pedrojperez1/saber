@@ -1,6 +1,6 @@
-# [Saber](https://saber-app.herokuapp.com/)
+# Saber
 
-Saber was designed to help citizens participate in the democratic process by asking questions to the politicians that represent them. Questions are asked publicly, so users can see what kinds of questions are being asked in their area.
+[Saber](https://saber-app.herokuapp.com/) was designed to help citizens participate in the democratic process by asking questions to the politicians that represent them. Questions are asked publicly, so users can see what kinds of questions are being asked in their area.
 
 ### User Flow
 
