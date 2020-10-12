@@ -90,9 +90,16 @@ class Official(db.Model):
         city_name = city.name
         state_name = city.state.name
         base_url = 'https://www.googleapis.com/civicinfo/v2/'
-        json_resp = requests.get(
-            f'{base_url}representatives?key={GOOGLE_DEV_API_KEY}&address={city_name}%20{state_name}'
-            ).json()
+        try:
+            json_resp = requests.get(
+                f'{base_url}representatives?key={GOOGLE_DEV_API_KEY}&address={city_name}%20{state_name}'
+                ).json()
+        except:
+            raise Exception('Error connecting to the Google Civic Information API. Please try again.')
+
+        if json_resp.get('error') and json_resp['error']['code'] == 400:
+            err = json_resp['error']['message']
+            raise Exception(f'Bad API request! Error: {err}')
 
         new_officials = []
         # first parse the returned list of officials for new user
@@ -215,6 +222,6 @@ class CityOfficial(db.Model):
     """CityOfficial model"""
     __tablename__ = 'cities_officials'
 
-    city_id = db.Column(db.Integer, db.ForeignKey('cities.id'), primary_key=True)
-    official_id = db.Column(db.Integer, db.ForeignKey('officials.id'), primary_key=True)
+    city_id = db.Column(db.Integer, db.ForeignKey('cities.id', ondelete='CASCADE'), primary_key=True)
+    official_id = db.Column(db.Integer, db.ForeignKey('officials.id', ondelete='CASCADE'), primary_key=True)
 

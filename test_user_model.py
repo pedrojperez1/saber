@@ -48,8 +48,6 @@ class UserModelTestCase(TestCase):
 
     def test_user_model_instance(self):
         """Test user model instance"""
-        db.session.query(User).delete()
-        db.session.commit()
         user = User(
             id=1,
             username='testuser',
