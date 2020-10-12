@@ -28,13 +28,9 @@ class UserModelTestCase(TestCase):
 
         # Create a city/state to use later
         state1 = State(id=1, name='PA')
-        db.session.add(state1)
-        db.session.commit()
         city1 = City(id=1, name='Philadelphia', state_id=1)
-        db.session.add(city1)
-        db.session.commit()
         o1 = Official(id=1, name='Official', office='Mayor')
-        db.session.add(o1)
+        db.session.add_all([state1, city1, o1])
         db.session.commit()
 
     def setUp(self):
